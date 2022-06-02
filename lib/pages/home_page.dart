@@ -23,6 +23,9 @@ class _HomePageState extends State<HomePage> {
     // getMovies();
   }
 
+  getMovies() async{
+
+  }
 
 
   @override
