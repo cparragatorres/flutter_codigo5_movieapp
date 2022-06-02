@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List movies = [];
+  List<MovieModel> moviesList = [];
 
   @override
   initState() {
@@ -27,6 +29,11 @@ class _HomePageState extends State<HomePage> {
     if (response.statusCode == 200) {
       Map<String, dynamic> myMap = json.decode(response.body);
       movies = myMap["results"];
+      // movies.forEach((element) {
+      //   moviesList.add(MovieModel.fromJson(element));
+      // });
+      moviesList = movies.map<MovieModel>((e) => MovieModel.fromJson(e)).toList();
+
       setState(() {});
     }
   }
@@ -47,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: ScrollPhysics(),
-                  itemCount: movies.length,
+                  itemCount: moviesList.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       margin: const EdgeInsets.symmetric(
@@ -89,7 +96,8 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Text(
-                                    movies[index]["original_title"],
+                                    // movies[index]["original_title"],
+                                    moviesList[index].originalTitle,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
@@ -102,7 +110,8 @@ class _HomePageState extends State<HomePage> {
                                     height: 8.0,
                                   ),
                                   Text(
-                                    movies[index]["overview"],
+                                    // movies[index]["overview"],
+                                    moviesList[index].overview,
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
@@ -128,7 +137,8 @@ class _HomePageState extends State<HomePage> {
                                             width: 4.0,
                                           ),
                                           Text(
-                                            movies[index]["release_date"],
+                                            // movies[index]["release_date"],
+                                            moviesList[index].releaseDate.toString().substring(0, 10),
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 12.0),
@@ -146,8 +156,8 @@ class _HomePageState extends State<HomePage> {
                                             width: 4.0,
                                           ),
                                           Text(
-                                            movies[index]["vote_count"]
-                                                .toString(),
+                                            // movies[index]["vote_count"].toString(),
+                                            moviesList[index].voteCount.toString(),
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 12.0),
@@ -173,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                                 shape: BoxShape.circle,
                               ),
                               child: Text(
-                                "5.3",
+                                moviesList[index].voteAverage.toString(),
                                 style: TextStyle(
                                   fontSize: 20.0,
                                   color: Colors.white,
