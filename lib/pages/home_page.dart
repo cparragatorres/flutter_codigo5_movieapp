@@ -54,15 +54,28 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Discover",
+                  "Welcome, Mario",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
+                Row(
+                  children: [
+                    Text(
+                      "Discover",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                  ],
+                ),
                 const SizedBox(
-                  height: 16.0,
+                  height: 20.0,
                 ),
                 SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -79,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       ItemFilterWidget(
                         textFilter: "Drama",
-                        isSelected: true,
+                        isSelected: false,
                       ),
                       ItemFilterWidget(
                         textFilter: "Comedy",
@@ -87,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       ItemFilterWidget(
                         textFilter: "Terror",
-                        isSelected: true,
+                        isSelected: false,
                       ),
                       ItemFilterWidget(
                         textFilter: "Gore",

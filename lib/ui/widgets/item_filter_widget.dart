@@ -28,6 +28,14 @@ class ItemFilterWidget extends StatelessWidget {
             offset: const Offset(4, 4),
           ),
         ] : [],
+        gradient: isSelected ? const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xff5de09c),
+            Color(0xff23dec3),
+          ],
+        ) : null,
       ),
       child: Text(
         textFilter,
