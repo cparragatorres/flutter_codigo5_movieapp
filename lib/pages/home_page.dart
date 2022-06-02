@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
+import 'package:flutter_codigo5_movieapp/ui/widgets/item_filter_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_movie_list_widget.dart';
 import 'package:http/http.dart' as http;
 
@@ -61,27 +62,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 10.0,
+                  height: 16.0,
                 ),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(right: 12.0),
-                      padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(
-                          color: Colors.white70,
-                        ),
-                      ),
-                      child: Text(
-                        "All",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
+                SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection:  Axis.horizontal,
+                  child: Row(
+                    children: [
+                      ItemFilterWidget(textFilter: "All"),
+                      ItemFilterWidget(textFilter: "Action"),
+                      ItemFilterWidget(textFilter: "Drama"),
+                      ItemFilterWidget(textFilter: "Comedy"),
+                      ItemFilterWidget(textFilter: "Terror"),
+                      ItemFilterWidget(textFilter: "Gore"),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
                 ),
                 ListView.builder(
                   shrinkWrap: true,
