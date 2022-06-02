@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       "Discover",
                       style: TextStyle(
                         color: Colors.white,
@@ -71,11 +71,34 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
+                    Container(
+                      padding: const EdgeInsets.all(3.5),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.redAccent,
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xff5de09c),
+                            Color(0xff23dec3),
+                          ],
+                        ),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: Image.network(
+                          "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                          height: 50,
+                          width: 50,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(
-                  height: 20.0,
+                  height: 22.0,
                 ),
                 SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -110,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 10.0,
+                  height: 16.0,
                 ),
                 ListView.builder(
                   shrinkWrap: true,
