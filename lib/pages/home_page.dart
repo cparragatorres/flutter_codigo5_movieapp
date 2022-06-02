@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
 
   getMovies() async {
     String path =
-        "https://api.themoviedb.org/3/discover/movie?api_key=077c6b8e215715b477754b84846c0f95";
+        "https://api.themoviedb.org/3/discover/movie?api_key=xxxxxxx";
     Uri _uri = Uri.parse(path);
     http.Response response = await http.get(_uri);
     if (response.statusCode == 200) {
