@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ItemFilterWidget extends StatelessWidget {
+
   String textFilter;
+  bool isSelected;
+
   ItemFilterWidget({
     required this.textFilter,
+    required this.isSelected,
   });
 
   @override
@@ -12,15 +16,24 @@ class ItemFilterWidget extends StatelessWidget {
       margin: const EdgeInsets.only(right: 12.0),
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 6.0),
       decoration: BoxDecoration(
+        color: isSelected ? Color(0xff23dec3) : Colors.transparent,
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(
-          color: Colors.white70,
+          color: isSelected ? Color(0xff23dec3) : Colors.white70,
         ),
+        boxShadow: isSelected ? [
+          BoxShadow(
+            color: const Color(0xff23dec3).withOpacity(0.4),
+            blurRadius: 8,
+            offset: const Offset(4, 4),
+          ),
+        ] : [],
       ),
       child: Text(
         textFilter,
         style: TextStyle(
-          color: Colors.white,
+          color: isSelected ? Colors.black : Colors.white,
+          fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
         ),
       ),
     );

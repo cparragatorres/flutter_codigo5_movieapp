@@ -66,15 +66,33 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
-                  scrollDirection:  Axis.horizontal,
+                  scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      ItemFilterWidget(textFilter: "All"),
-                      ItemFilterWidget(textFilter: "Action"),
-                      ItemFilterWidget(textFilter: "Drama"),
-                      ItemFilterWidget(textFilter: "Comedy"),
-                      ItemFilterWidget(textFilter: "Terror"),
-                      ItemFilterWidget(textFilter: "Gore"),
+                      ItemFilterWidget(
+                        textFilter: "All",
+                        isSelected: true,
+                      ),
+                      ItemFilterWidget(
+                        textFilter: "Action",
+                        isSelected: false,
+                      ),
+                      ItemFilterWidget(
+                        textFilter: "Drama",
+                        isSelected: true,
+                      ),
+                      ItemFilterWidget(
+                        textFilter: "Comedy",
+                        isSelected: false,
+                      ),
+                      ItemFilterWidget(
+                        textFilter: "Terror",
+                        isSelected: true,
+                      ),
+                      ItemFilterWidget(
+                        textFilter: "Gore",
+                        isSelected: false,
+                      ),
                     ],
                   ),
                 ),
