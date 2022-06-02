@@ -20,12 +20,8 @@ class _HomePageState extends State<HomePage> {
   @override
   initState() {
     super.initState();
-    // getMovies();
   }
 
-  getMovies() async{
-
-  }
 
 
   @override
