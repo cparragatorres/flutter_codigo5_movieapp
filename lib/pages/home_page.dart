@@ -20,26 +20,10 @@ class _HomePageState extends State<HomePage> {
   @override
   initState() {
     super.initState();
-    getMovies();
+    // getMovies();
   }
 
-  getMovies() async {
-    String path =
-        "https://api.themoviedb.org/3/discover/movie?api_key=077c6b8e215715b477754b84846c0f95";
-    Uri _uri = Uri.parse(path);
-    http.Response response = await http.get(_uri);
-    if (response.statusCode == 200) {
-      Map<String, dynamic> myMap = json.decode(response.body);
-      movies = myMap["results"];
-      // movies.forEach((element) {
-      //   moviesList.add(MovieModel.fromJson(element));
-      // });
-      moviesList =
-          movies.map<MovieModel>((e) => MovieModel.fromJson(e)).toList();
 
-      setState(() {});
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
