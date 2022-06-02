@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
+import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_filter_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_movie_list_widget.dart';
 import 'package:http/http.dart' as http;
@@ -16,12 +17,28 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List movies = [];
   List<MovieModel> moviesList = [];
+  final APIService _apiService = APIService();
 
   @override
   initState() {
     super.initState();
+    getData();
   }
 
+  getData() async{
+    // _apiService.getMovies().then((value) {
+    //   moviesList = value;
+    //   setState(() {
+    //
+    //   });
+    // });
+
+    moviesList = await _apiService.getMovies();
+    setState(() {
+
+    });
+
+  }
 
 
   @override
@@ -86,7 +103,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-
                 const SizedBox(
                   height: 30.0,
                 ),

@@ -4,12 +4,12 @@ import 'package:flutter_codigo5_movieapp/pages/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: Colors.redAccent,
-      systemNavigationBarColor: Colors.indigo,
-    ),
-  );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   SystemUiOverlayStyle(
+  //     statusBarColor: Colors.redAccent,
+  //     systemNavigationBarColor: Colors.indigo,
+  //   ),
+  // );
   runApp(MyApp());
 }
 
