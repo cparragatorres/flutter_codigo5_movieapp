@@ -66,13 +66,16 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Container(
+                      margin: const EdgeInsets.only(right: 12.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
-                          color: Colors.redAccent,
+                          color: Colors.white70,
                         ),
                       ),
                       child: Text(
-                        "Action",
+                        "All",
                         style: TextStyle(
                           color: Colors.white,
                         ),
