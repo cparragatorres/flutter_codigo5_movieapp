@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MovieDetailPage extends StatelessWidget {
@@ -10,12 +9,24 @@ class MovieDetailPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            title: Text("Hola"),
+            // title: Text("Hola"),
             centerTitle: true,
             expandedHeight: 200.0,
-            flexibleSpace: FlexibleSpaceBar(),
+            flexibleSpace: FlexibleSpaceBar(
+              title: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: Text(
+                  "Diego jlkajsdkasd sadsadsad asdasdasdsad asdasds",
+                  maxLines: 1,
+                ),
+              ),
+              // titlePadding: EdgeInsets.symmetric(horizontal: 50.0),
+              centerTitle: true,
+            ),
+            floating: false,
+            snap: false,
+            pinned: true,
           ),
-
           SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -46,7 +57,6 @@ class MovieDetailPage extends StatelessWidget {
               ],
             ),
           ),
-
         ],
       ),
     );
