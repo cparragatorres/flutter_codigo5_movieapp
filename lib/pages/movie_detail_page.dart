@@ -197,33 +197,84 @@ class MovieDetailPage extends StatelessWidget {
                         spacing: 8,
                         children: [
                           Chip(
-                            label: Text("Action",),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.0)
-                            )
-                          ),
-                          Chip(
-                              label: Text("Action asdsadads ",),
+                              label: Text(
+                                "Action",
+                              ),
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12.0)
-                              )
-                          ),
+                                  borderRadius: BorderRadius.circular(12.0))),
                           Chip(
-                              label: Text("Action",),
+                              label: Text(
+                                "Action asdsadads ",
+                              ),
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12.0)
-                              )
-                          ),
+                                  borderRadius: BorderRadius.circular(12.0))),
                           Chip(
-                              label: Text("Action sdsd",),
+                              label: Text(
+                                "Action",
+                              ),
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12.0)
-                              )
-                          ),
+                                  borderRadius: BorderRadius.circular(12.0))),
+                          Chip(
+                              label: Text(
+                                "Action sdsd",
+                              ),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0))),
                         ],
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 16,
+                      ),
+                      TitleDescriptionWidget(
+                        title: "Cast",
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 100,
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.white38,
+                                  radius: 38,
+                                  backgroundImage: NetworkImage(
+                                    "https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 3.0,
+                                ),
+                                Text(
+                                  "Maria Juana sds",
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                                Text(
+                                  "Karla",
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white54,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 200,
                       ),
                     ],
                   ),
