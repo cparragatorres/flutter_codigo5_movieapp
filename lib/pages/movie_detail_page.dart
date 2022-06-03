@@ -142,8 +142,10 @@ class MovieDetailPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 0,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -155,6 +157,33 @@ class MovieDetailPage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white54,
                           fontSize: 14.0,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 50.0,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.link,
+                            color: kBrandPrimaryColor,
+                          ),
+                          label: const Text(
+                            "Home page",
+                            style: TextStyle(
+                              color: kBrandPrimaryColor,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            primary: kBrandSecondaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                          ),
                         ),
                       ),
                     ],
