@@ -11,9 +11,14 @@ class MovieDetailPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            title: Text("Diego jlkajsdkasd sadsadsad asdasdasdsad asdasds"),
+            title: Text(
+              "Fantastic Beasts: The Secrets of Dumbledore",
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             centerTitle: true,
-            expandedHeight: 240.0,
+            expandedHeight: 200.0,
             elevation: 0,
             backgroundColor: kBrandPrimaryColor,
             flexibleSpace: FlexibleSpaceBar(
@@ -39,13 +44,12 @@ class MovieDetailPage extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          kBrandPrimaryColor,
-                          kBrandPrimaryColor.withOpacity(0.0),
-                        ]
-                      ),
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            kBrandPrimaryColor.withOpacity(1),
+                            kBrandPrimaryColor.withOpacity(0.0),
+                          ]),
                     ),
                   ),
                 ],
