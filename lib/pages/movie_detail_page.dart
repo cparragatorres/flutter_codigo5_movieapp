@@ -5,9 +5,7 @@ import 'package:flutter_codigo5_movieapp/ui/widgets/item_cast_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/title_description_widget.dart';
 
 class MovieDetailPage extends StatelessWidget {
-
   MovieDetailPage({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -239,7 +237,6 @@ class MovieDetailPage extends StatelessWidget {
                         physics: const BouncingScrollPhysics(),
                         child: Row(
                           children: [
-
                             ItemCastWidget(),
                             ItemCastWidget(),
                             ItemCastWidget(),
@@ -248,7 +245,38 @@ class MovieDetailPage extends StatelessWidget {
                             ItemCastWidget(),
                             ItemCastWidget(),
                             ItemCastWidget(),
-
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      TitleDescriptionWidget(
+                        title: "Reviews",
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Container(
+                        // color: Colors.white54,
+                        child: ExpansionTile(
+                          textColor: Colors.white,
+                          iconColor: Colors.white,
+                          collapsedIconColor: Colors.white,
+                          childrenPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          title: Text(
+                            "Review 1",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          children: [
+                            Text(
+                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                              style: TextStyle(
+                                color: Colors.white70,
+                              ),
+                            ),
                           ],
                         ),
                       ),
