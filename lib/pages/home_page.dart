@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                           end: Alignment.bottomRight,
                           colors: [
                             Color(0xff5de09c),
-                            Color(0xff23dec3),
+                            kBrandSecondaryColor,
                           ],
                         ),
                       ),

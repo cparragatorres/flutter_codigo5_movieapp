@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 
 class TitleDescriptionWidget extends StatelessWidget {
   String title;
@@ -23,7 +24,7 @@ class TitleDescriptionWidget extends StatelessWidget {
           height: 3,
           width: 40,
           decoration: BoxDecoration(
-            color: Colors.redAccent,
+            color: kBrandSecondaryColor,
             borderRadius: BorderRadius.circular(10.0),
           ),
         ),

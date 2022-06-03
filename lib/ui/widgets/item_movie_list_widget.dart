@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
 import 'package:flutter_codigo5_movieapp/pages/movie_detail_page.dart';
+import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 
 class ItemMovieListWidget extends StatelessWidget {
 
@@ -76,7 +77,7 @@ class ItemMovieListWidget extends StatelessWidget {
                       height: 3,
                       width: 100,
                       decoration: BoxDecoration(
-                        color: Color(0xff23dec3),
+                        color: kBrandSecondaryColor,
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
