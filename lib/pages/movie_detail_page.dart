@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/title_description_widget.dart';
@@ -185,6 +186,44 @@ class MovieDetailPage extends StatelessWidget {
                             ),
                           ),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      TitleDescriptionWidget(
+                        title: "Genres",
+                      ),
+                      Wrap(
+                        spacing: 8,
+                        children: [
+                          Chip(
+                            label: Text("Action",),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0)
+                            )
+                          ),
+                          Chip(
+                              label: Text("Action asdsadads ",),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0)
+                              )
+                          ),
+                          Chip(
+                              label: Text("Action",),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0)
+                              )
+                          ),
+                          Chip(
+                              label: Text("Action sdsd",),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0)
+                              )
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 40,
                       ),
                     ],
                   ),
