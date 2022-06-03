@@ -62,61 +62,86 @@ class MovieDetailPage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Row(
-                  children: [
-                    Container(
-                      height: 160,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12.0),
-                        color: Colors.redAccent,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            "http://image.tmdb.org/t/p/w500/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 160,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12.0),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              "http://image.tmdb.org/t/p/w500/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 12.0,
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.date_range,
-                                color: Colors.white54,
-                                size: 14.0,
-                              ),
-                              const SizedBox(
-                                width: 4.0,
-                              ),
-                              Text(
-                                "2022-01-01",
-                                style: TextStyle(
-                                  color: Colors.white54,
-                                  fontSize: 13.0
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 6.0,
-                          ),
-                          Text(
-                            "Fantastic Beasts: The Secrets of Dumbledore",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
+                      const SizedBox(
+                        width: 12.0,
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.date_range,
+                                  color: Colors.white54,
+                                  size: 14.0,
+                                ),
+                                const SizedBox(
+                                  width: 4.0,
+                                ),
+                                Text(
+                                  "2022-01-01",
+                                  style: TextStyle(
+                                    color: Colors.white54,
+                                    fontSize: 13.0
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 6.0,
+                            ),
+                            Text(
+                              "Fantastic Beasts: The Secrets of Dumbledore",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 6.0,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.timer,
+                                  color: Colors.white54,
+                                  size: 14.0,
+                                ),
+                                const SizedBox(
+                                  width: 4.0,
+                                ),
+                                Text(
+                                  "120 min",
+                                  style: TextStyle(
+                                      color: Colors.white54,
+                                      fontSize: 13.0
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
