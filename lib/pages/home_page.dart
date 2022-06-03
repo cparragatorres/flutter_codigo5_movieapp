@@ -26,14 +26,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   getData() async{
-    // _apiService.getMovies().then((value) {
-    //   moviesList = value;
-    //   setState(() {
-    //
-    //   });
-    // });
+    _apiService.getMovies().then((value) {
+      moviesList = value;
+      setState(() {
 
-    moviesList = await _apiService.getMovies();
+      });
+    });
+    // moviesList = await _apiService.getMovies();
     setState(() {
 
     });
