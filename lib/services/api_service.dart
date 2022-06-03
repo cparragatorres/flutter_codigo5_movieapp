@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
+import 'package:flutter_codigo5_movieapp/pages/movie_detail_page.dart';
 import 'package:flutter_codigo5_movieapp/utils/constants.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,6 +20,11 @@ class APIService{
       return moviesList;
     }
     return [];
+  }
+
+
+  Future<MovieDetailModel> getMovie(int movieId){
+
   }
 
 

@@ -5,11 +5,20 @@ import 'package:flutter_codigo5_movieapp/ui/widgets/item_cast_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_review_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/title_description_widget.dart';
 
-class MovieDetailPage extends StatelessWidget {
-  MovieDetailPage({Key? key}) : super(key: key);
+class MovieDetailPage extends StatefulWidget {
+  int movieId;
+  MovieDetailPage({required this.movieId,});
 
   @override
+  State<MovieDetailPage> createState() => _MovieDetailPageState();
+}
+
+class _MovieDetailPageState extends State<MovieDetailPage> {
+  @override
   Widget build(BuildContext context) {
+
+    print(widget.movieId);
+
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
       body: CustomScrollView(
@@ -250,7 +259,7 @@ class MovieDetailPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 16,
+                        height: 20,
                       ),
                       TitleDescriptionWidget(
                         title: "Reviews",
@@ -266,7 +275,7 @@ class MovieDetailPage extends StatelessWidget {
                       ItemReviewWidget(),
 
                       const SizedBox(
-                        height: 200,
+                        height: 30,
                       ),
                     ],
                   ),
