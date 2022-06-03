@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
 import 'package:flutter_codigo5_movieapp/services/api_service.dart';
+import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_filter_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_movie_list_widget.dart';
 import 'package:http/http.dart' as http;
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff161823),
+      backgroundColor: kBrandPrimaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

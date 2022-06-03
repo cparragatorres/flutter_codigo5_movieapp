@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 
 class MovieDetailPage extends StatelessWidget {
   const MovieDetailPage({Key? key}) : super(key: key);
@@ -6,22 +7,49 @@ class MovieDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBrandPrimaryColor,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            // title: Text("Hola"),
+            title: Text("Diego jlkajsdkasd sadsadsad asdasdasdsad asdasds"),
             centerTitle: true,
-            expandedHeight: 200.0,
+            expandedHeight: 240.0,
+            elevation: 0,
+            backgroundColor: kBrandPrimaryColor,
             flexibleSpace: FlexibleSpaceBar(
-              title: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                child: Text(
-                  "Diego jlkajsdkasd sadsadsad asdasdasdsad asdasds",
-                  maxLines: 1,
-                ),
+              // title: Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 50.0),
+              //   child: Text(
+              //     "Diego jlkajsdkasd sadsadsad asdasdasdsad asdasds",
+              //     maxLines: 1,
+              //     style: TextStyle(
+              //       fontSize: 12.0,
+              //     ),
+              //   ),
+              // ),
+              // // titlePadding: EdgeInsets.symmetric(horizontal: 50.0),
+              // centerTitle: true,
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
+                    "http://image.tmdb.org/t/p/w500/7ucaMpXAmlIM24qZZ8uI9hCY0hm.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          kBrandPrimaryColor,
+                          kBrandPrimaryColor.withOpacity(0.0),
+                        ]
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              // titlePadding: EdgeInsets.symmetric(horizontal: 50.0),
-              centerTitle: true,
             ),
             floating: false,
             snap: false,
@@ -30,30 +58,7 @@ class MovieDetailPage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Container(
-                  height: 200.0,
-                  color: Colors.redAccent,
-                ),
-                Container(
-                  height: 200.0,
-                  color: Colors.yellow,
-                ),
-                Container(
-                  height: 200.0,
-                  color: Colors.green,
-                ),
-                Container(
-                  height: 200.0,
-                  color: Colors.redAccent,
-                ),
-                Container(
-                  height: 200.0,
-                  color: Colors.yellow,
-                ),
-                Container(
-                  height: 200.0,
-                  color: Colors.green,
-                ),
+
               ],
             ),
           ),
