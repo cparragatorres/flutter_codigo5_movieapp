@@ -63,7 +63,8 @@ class MovieDetailPage extends StatelessWidget {
             delegate: SliverChildListDelegate(
               [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 14.0, vertical: 14.0),
                   child: Row(
                     children: [
                       Container(
@@ -98,9 +99,7 @@ class MovieDetailPage extends StatelessWidget {
                                 Text(
                                   "2022-01-01",
                                   style: TextStyle(
-                                    color: Colors.white54,
-                                    fontSize: 13.0
-                                  ),
+                                      color: Colors.white54, fontSize: 13.0),
                                 ),
                               ],
                             ),
@@ -110,9 +109,9 @@ class MovieDetailPage extends StatelessWidget {
                             Text(
                               "Fantastic Beasts: The Secrets of Dumbledore",
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             const SizedBox(
@@ -131,15 +130,51 @@ class MovieDetailPage extends StatelessWidget {
                                 Text(
                                   "120 min",
                                   style: TextStyle(
-                                      color: Colors.white54,
-                                      fontSize: 13.0
-                                  ),
+                                      color: Colors.white54, fontSize: 13.0),
                                 ),
                               ],
                             ),
                           ],
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Overview",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                        style: TextStyle(
+                          color: Colors.white54,
+                          fontSize: 14.0
+                        ),
+                      ),
+                      Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                        style: TextStyle(
+                            color: Colors.white54,
+                            fontSize: 14.0
+                        ),
+                      ),
+                      Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                        style: TextStyle(
+                            color: Colors.white54,
+                            fontSize: 14.0
+                        ),
+                      ),
+
                     ],
                   ),
                 ),
