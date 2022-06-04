@@ -50,13 +50,13 @@ class AuthorDetails {
   String name;
   String username;
   String avatarPath;
-  int rating;
+  double rating;
 
   factory AuthorDetails.fromJson(Map<String, dynamic> json) => AuthorDetails(
     name: json["name"],
     username: json["username"],
-    avatarPath: json["avatar_path"],
-    rating: json["rating"],
+    avatarPath: json["avatar_path"] ?? "",
+    rating: json["rating"] != null ? json["rating"].toDouble() : 0,
   );
 
   Map<String, dynamic> toJson() => {

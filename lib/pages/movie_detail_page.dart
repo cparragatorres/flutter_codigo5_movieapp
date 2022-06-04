@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/models/cast_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
+import 'package:flutter_codigo5_movieapp/models/review_model.dart';
 import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_cast_widget.dart';
@@ -24,6 +25,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   MovieDetailModel? movieDetailModel;
   bool isLoading = true;
   List<CastModel> castList = [];
+  List<ReviewModel> reviews = [];
 
   @override
   void initState() {
@@ -35,7 +37,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   getData() async {
     movieDetailModel = await _apiService.getMovie(widget.movieId);
     castList = await _apiService.getCast(widget.movieId);
-    _apiService.getReviews(widget.movieId);
+    reviews = await _apiService.getReviews(widget.movieId);
     isLoading = false;
     setState(() {});
   }
@@ -276,11 +278,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                             const SizedBox(
                               height: 10.0,
                             ),
-                            ItemReviewWidget(),
-                            ItemReviewWidget(),
-                            ItemReviewWidget(),
-                            ItemReviewWidget(),
-                            ItemReviewWidget(),
+
+                            ...reviews.map((e) =>  ItemReviewWidget(reviewModel: e),).toList(),
+
                             const SizedBox(
                               height: 30,
                             ),
