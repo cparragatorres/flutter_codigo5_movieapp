@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/models/cast_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
@@ -22,6 +23,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   APIService _apiService = APIService();
   MovieDetailModel? movieDetailModel;
   bool isLoading = true;
+  List<CastModel> castList = [];
 
   @override
   void initState() {
@@ -32,7 +34,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
 
   getData() async {
     movieDetailModel = await _apiService.getMovie(widget.movieId);
-    _apiService.getCast(widget.movieId);
+    castList = await _apiService.getCast(widget.movieId);
     isLoading = false;
     setState(() {});
   }
@@ -261,16 +263,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                               scrollDirection: Axis.horizontal,
                               physics: const BouncingScrollPhysics(),
                               child: Row(
-                                children: [
-                                  ItemCastWidget(),
-                                  ItemCastWidget(),
-                                  ItemCastWidget(),
-                                  ItemCastWidget(),
-                                  ItemCastWidget(),
-                                  ItemCastWidget(),
-                                  ItemCastWidget(),
-                                  ItemCastWidget(),
-                                ],
+                                children: castList.map((e) => ItemCastWidget(castModel: e),).toList(),
                               ),
                             ),
                             const SizedBox(

@@ -1,8 +1,10 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/models/cast_model.dart';
 
 class ItemCastWidget extends StatelessWidget {
-  const ItemCastWidget({Key? key}) : super(key: key);
+  CastModel castModel;
+
+  ItemCastWidget({required this.castModel});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +17,16 @@ class ItemCastWidget extends StatelessWidget {
             backgroundColor: Colors.white38,
             radius: 38,
             backgroundImage: NetworkImage(
-              "https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              castModel.profilePath != ""
+                  ? "http://image.tmdb.org/t/p/w500${castModel.profilePath}"
+                  : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png",
             ),
           ),
           const SizedBox(
             height: 3.0,
           ),
           Text(
-            "Maria Juana sds",
+            castModel.originalName,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
@@ -32,7 +36,7 @@ class ItemCastWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "Karla asdsad asdsadsadsa sadsadsad asdsadasd ",
+            castModel.character,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
