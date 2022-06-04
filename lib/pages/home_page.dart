@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/models/genre_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
 import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
@@ -18,6 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List movies = [];
   List<MovieModel> moviesList = [];
+  List<GenreModel> genresList = [];
   final APIService _apiService = APIService();
 
   @override
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     getData();
   }
 
-  getData() async{
+  getData() async {
     // _apiService.getMovies().then((value) {
     //   moviesList = value;
     //   setState(() {
@@ -34,13 +36,9 @@ class _HomePageState extends State<HomePage> {
     //   });
     // });
     moviesList = await _apiService.getMovies();
-    _apiService.getGenres();
-    setState(() {
-
-    });
-
+    genresList = await _apiService.getGenres();
+    setState(() {});
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -111,32 +109,14 @@ class _HomePageState extends State<HomePage> {
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      ItemFilterWidget(
-                        textFilter: "All",
-                        isSelected: true,
-                      ),
-                      ItemFilterWidget(
-                        textFilter: "Action",
-                        isSelected: false,
-                      ),
-                      ItemFilterWidget(
-                        textFilter: "Drama",
-                        isSelected: false,
-                      ),
-                      ItemFilterWidget(
-                        textFilter: "Comedy",
-                        isSelected: false,
-                      ),
-                      ItemFilterWidget(
-                        textFilter: "Terror",
-                        isSelected: false,
-                      ),
-                      ItemFilterWidget(
-                        textFilter: "Gore",
-                        isSelected: false,
-                      ),
-                    ],
+                    children: genresList
+                        .map(
+                          (e) => ItemFilterWidget(
+                            textFilter: e.name,
+                            isSelected: false,
+                          ),
+                        )
+                        .toList(),
                   ),
                 ),
                 const SizedBox(

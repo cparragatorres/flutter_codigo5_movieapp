@@ -93,7 +93,7 @@ class APIService{
   }
 
 
-  getGenres() async{
+  Future<List<GenreModel>> getGenres() async{
     String path = "$pathProduction/genre/movie/list?api_key=$apiKey&language=en-US";
     Uri _uri = Uri.parse(path);
     http.Response response = await http.get(_uri);
@@ -101,8 +101,9 @@ class APIService{
       Map<String, dynamic> myMap = json.decode(response.body);
       List genres = myMap["genres"];
       List<GenreModel> genreModelList = genres.map((e) => GenreModel.fromJson(e)).toList();
-      print(genreModelList);
+      return genreModelList;
     }
+    return [];
   }
 
 
