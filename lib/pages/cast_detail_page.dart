@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/models/cast_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/loading_indicator_widget.dart';
@@ -14,6 +15,8 @@ class CastDetailPage extends StatefulWidget {
 class _CastDetailPageState extends State<CastDetailPage> {
 
   APIService _apiService = APIService();
+  CastDetailModel? castDetailModel;
+  bool isLoading = true;
 
   @override
   void initState() {
@@ -23,7 +26,13 @@ class _CastDetailPageState extends State<CastDetailPage> {
   }
 
   getData(){
-    _apiService.getCastDetail(12323);
+    _apiService.getCastDetail(12323).then((value){
+      castDetailModel = value;
+      isLoading = false;
+      setState(() {
+
+      });
+    });
   }
 
   @override
@@ -34,7 +43,7 @@ class _CastDetailPageState extends State<CastDetailPage> {
         borderRadius: BorderRadius.circular(20.0),
       ),
       contentPadding: EdgeInsets.zero,
-      content: false
+      content: isLoading
           ? const SizedBox(
         height: 300,
         child: LoadingIndicatorWidget(),
@@ -53,7 +62,7 @@ class _CastDetailPageState extends State<CastDetailPage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  "https://image.tmdb.org/t/p/w500/u2tnZ0L2dwrzFKevVANYT5Pb1nE.jpg",
+                  "https://image.tmdb.org/t/p/w500${castDetailModel!.profilePath}",
                 ),
               ),
             ),
@@ -63,7 +72,7 @@ class _CastDetailPageState extends State<CastDetailPage> {
             child: Column(
               children: [
                 Text(
-                  "Harold Torres asdsad",
+                  castDetailModel!.name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -74,7 +83,7 @@ class _CastDetailPageState extends State<CastDetailPage> {
                   height: 4.0,
                 ),
                 Text(
-                  "Mexico City, Distrito Federal, Mexico",
+                  castDetailModel!.placeOfBirth,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white54,
@@ -82,7 +91,7 @@ class _CastDetailPageState extends State<CastDetailPage> {
                   ),
                 ),
                 Text(
-                  "1991-03-15",
+                  castDetailModel!.birthday.toString().substring(0, 10),
                   style: TextStyle(
                     color: Colors.white54,
                     fontSize: 13.0,

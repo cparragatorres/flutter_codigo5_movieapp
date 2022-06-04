@@ -64,15 +64,16 @@ class APIService{
     return [];
   }
 
-  getCastDetail(int castId) async{
+  Future<CastDetailModel?> getCastDetail(int castId) async{
     String path = "$pathProduction/person/234070?api_key=$apiKey";
     Uri _uri = Uri.parse(path);
     http.Response response = await http.get(_uri);
     if(response.statusCode == 200){
       Map<String, dynamic> myMap = json.decode(response.body);
       CastDetailModel castDetailModel = CastDetailModel.fromJson(myMap);
-      print(castDetailModel);
+      return castDetailModel;
     }
+    return null;
   }
 
 
