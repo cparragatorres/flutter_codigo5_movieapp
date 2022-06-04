@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_codigo5_movieapp/models/cast_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/cast_model.dart';
+import 'package:flutter_codigo5_movieapp/models/image_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
 import 'package:flutter_codigo5_movieapp/models/review_model.dart';
@@ -76,12 +77,17 @@ class APIService{
     return null;
   }
 
-  getImages(int movieId) async {
+  Future<List<ImageModel>> getImages(int movieId) async {
     String path = "$pathProduction/movie/752623/images?api_key=$apiKey";
     Uri _uri = Uri.parse(path);
     http.Response response = await http.get(_uri);
-    print(response.statusCode);
-    print(response.body);
+    if(response.statusCode == 200){
+      Map<String, dynamic> myMap = json.decode(response.body);
+      List images = myMap["backdrops"];
+      List<ImageModel> imageModelList = images.map((e) => ImageModel.fromJson(e)).toList();
+      return imageModelList;
+    }
+    return [];
   }
 
 
