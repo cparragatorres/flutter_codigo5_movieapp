@@ -12,7 +12,8 @@ class CastDetailPage extends StatefulWidget {
 
 class _CastDetailPageState extends State<CastDetailPage> {
 
-  int contador = 10;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class _CastDetailPageState extends State<CastDetailPage> {
             child: Column(
               children: [
                 Text(
-                  "Harold Torres asdsad asdasds asdsad sdsadsdasdasd ",
+                  "Harold Torres asdsad",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -77,24 +78,6 @@ class _CastDetailPageState extends State<CastDetailPage> {
                   ),
                 ),
               ],
-            ),
-          ),
-          Text(
-            contador.toString(),
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              contador++;
-              print(contador);
-              setState(() {
-
-              });
-            },
-            child: Text(
-              "Hola",
             ),
           ),
         ],
