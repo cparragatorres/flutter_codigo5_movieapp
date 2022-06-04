@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_codigo5_movieapp/models/cast_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
 import 'package:flutter_codigo5_movieapp/pages/movie_detail_page.dart';
@@ -42,7 +43,8 @@ class APIService{
     if(response.statusCode == 200){
       Map<String, dynamic> myMap =  json.decode(response.body);
       List cast = myMap["cast"];
-      print(cast);
+      List<CastModel> castModelList = cast.map((e) => CastModel.fromJson(e)).toList();
+      return castModelList;
     }
     return [];
   }

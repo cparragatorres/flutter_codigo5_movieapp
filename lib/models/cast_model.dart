@@ -1,14 +1,4 @@
 
-// To parse this JSON data, do
-//
-//     final castModel = castModelFromJson(jsonString);
-
-import 'dart:convert';
-
-CastModel castModelFromJson(String str) => CastModel.fromJson(json.decode(str));
-
-String castModelToJson(CastModel data) => json.encode(data.toJson());
-
 class CastModel {
   CastModel({
     required this.adult,
@@ -46,7 +36,7 @@ class CastModel {
     name: json["name"],
     originalName: json["original_name"],
     popularity: json["popularity"].toDouble(),
-    profilePath: json["profile_path"],
+    profilePath: json["profile_path"] ?? "",
     castId: json["cast_id"],
     character: json["character"],
     creditId: json["credit_id"],
