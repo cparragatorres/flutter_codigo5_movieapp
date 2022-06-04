@@ -53,7 +53,11 @@ class APIService{
     String path = "$pathProduction/movie/$movieId/reviews?api_key=$apiKey&language=en-US&page=1";
     Uri _uri = Uri.parse(path);
     http.Response response = await http.get(_uri);
-    print(response.statusCode);
+    if(response.statusCode == 200){
+      Map<String, dynamic> myMap = json.decode(response.body);
+      List results = myMap["results"];
+      print(results);
+    }
   }
 
 
