@@ -6,7 +6,9 @@ import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/loading_indicator_widget.dart';
 
 class CastDetailPage extends StatefulWidget {
-  const CastDetailPage({Key? key}) : super(key: key);
+
+  int castId;
+  CastDetailPage({required this.castId,});
 
   @override
   State<CastDetailPage> createState() => _CastDetailPageState();
@@ -26,7 +28,7 @@ class _CastDetailPageState extends State<CastDetailPage> {
   }
 
   getData(){
-    _apiService.getCastDetail(12323).then((value){
+    _apiService.getCastDetail(widget.castId).then((value){
       castDetailModel = value;
       isLoading = false;
       setState(() {

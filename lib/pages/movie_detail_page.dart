@@ -29,7 +29,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   bool isLoading = true;
   List<CastModel> castList = [];
   List<ReviewModel> reviews = [];
-
+  int castId = 0;
 
   @override
   void initState() {
@@ -50,7 +50,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return CastDetailPage();
+        return CastDetailPage(
+          castId: castId,
+        );
       },
     );
   }
@@ -283,6 +285,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                     .map(
                                       (e) => GestureDetector(
                                         onTap: () {
+                                          castId = e.id;
                                           showDetailCast();
                                         },
                                         child: ItemCastWidget(castModel: e),
