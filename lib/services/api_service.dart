@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/models/cast_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/cast_model.dart';
+import 'package:flutter_codigo5_movieapp/models/genre_model.dart';
 import 'package:flutter_codigo5_movieapp/models/image_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_model.dart';
@@ -85,10 +87,22 @@ class APIService{
       Map<String, dynamic> myMap = json.decode(response.body);
       List images = myMap["backdrops"];
       List<ImageModel> imageModelList = images.map((e) => ImageModel.fromJson(e)).toList();
-      print(imageModelList);
       return imageModelList;
     }
     return [];
+  }
+
+
+  getGenres() async{
+    String path = "$pathProduction/genre/movie/list?api_key=$apiKey&language=en-US";
+    Uri _uri = Uri.parse(path);
+    http.Response response = await http.get(_uri);
+    if(response.statusCode == 200){
+      Map<String, dynamic> myMap = json.decode(response.body);
+      List genres = myMap["genres"];
+      List<GenreModel> genreModelList = genres.map((e) => GenreModel.fromJson(e)).toList();
+      print(genreModelList);
+    }
   }
 
 

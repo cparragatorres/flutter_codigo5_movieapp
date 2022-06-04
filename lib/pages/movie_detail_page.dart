@@ -12,6 +12,7 @@ import 'package:flutter_codigo5_movieapp/ui/widgets/item_review_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/loading_indicator_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/title_description_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:pinch_zoom/pinch_zoom.dart';
 
 class MovieDetailPage extends StatefulWidget {
   int movieId;
@@ -119,6 +120,19 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                 SliverList(
                   delegate: SliverChildListDelegate(
                     [
+
+                      // SizedBox(
+                      //   width: 200,
+                      //   height: 200,
+                      //   child: PinchZoom(
+                      //     child: Image.network('https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg'),
+                      //     resetDuration: const Duration(milliseconds: 100),
+                      //     maxScale: 10,
+                      //     onZoomStart: (){print('Start zooming');},
+                      //     onZoomEnd: (){print('Stop zooming');},
+                      //   ),
+                      // ),
+
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 14.0, vertical: 14.0),
