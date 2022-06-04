@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/loading_indicator_widget.dart';
 
@@ -12,8 +13,18 @@ class CastDetailPage extends StatefulWidget {
 
 class _CastDetailPageState extends State<CastDetailPage> {
 
+  APIService _apiService = APIService();
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
 
+  getData(){
+    _apiService.getCastDetail(12323);
+  }
 
   @override
   Widget build(BuildContext context) {
