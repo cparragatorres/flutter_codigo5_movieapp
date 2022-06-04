@@ -78,7 +78,7 @@ class APIService{
   }
 
   Future<List<ImageModel>> getImages(int movieId) async {
-    String path = "$pathProduction/movie/752623/images?api_key=$apiKey";
+    String path = "$pathProduction/movie/$movieId/images?api_key=$apiKey";
     Uri _uri = Uri.parse(path);
     http.Response response = await http.get(_uri);
     if(response.statusCode == 200){

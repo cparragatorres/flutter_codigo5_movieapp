@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_movieapp/models/cast_model.dart';
+import 'package:flutter_codigo5_movieapp/models/image_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/review_model.dart';
 import 'package:flutter_codigo5_movieapp/pages/cast_detail_page.dart';
@@ -29,6 +30,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   bool isLoading = true;
   List<CastModel> castList = [];
   List<ReviewModel> reviews = [];
+  List<ImageModel> images = [];
   int castId = 0;
 
   @override
@@ -42,7 +44,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     movieDetailModel = await _apiService.getMovie(widget.movieId);
     castList = await _apiService.getCast(widget.movieId);
     reviews = await _apiService.getReviews(widget.movieId);
-    _apiService.getImages(widget.movieId);
+    images = await _apiService.getImages(widget.movieId);
     isLoading = false;
     setState(() {});
   }
@@ -301,29 +303,23 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                             TitleDescriptionWidget(
                               title: "Images",
                             ),
+                            const SizedBox(
+                              height: 12,
+                            ),
                             GridView.count(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               crossAxisCount: 2,
                               childAspectRatio: 1.5,
-                              children: [
-                                Image.network(
-                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
-                                  fit: BoxFit.cover,
-                                ),
-                                Image.network(
-                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
-                                  fit: BoxFit.cover,
-                                ),
-                                Image.network(
-                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
-                                  fit: BoxFit.cover,
-                                ),
-                                Image.network(
-                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
-                                  fit: BoxFit.cover,
-                                ),
-                              ],
+                              padding: EdgeInsets.zero,
+                              children: images
+                                  .map(
+                                    (e) => Image.network(
+                                      "https://image.tmdb.org/t/p/w500${e.filePath}",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                  .toList(),
                             ),
                             const SizedBox(
                               height: 20,
