@@ -35,6 +35,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   getData() async {
     movieDetailModel = await _apiService.getMovie(widget.movieId);
     castList = await _apiService.getCast(widget.movieId);
+    _apiService.getReviews(widget.movieId);
     isLoading = false;
     setState(() {});
   }

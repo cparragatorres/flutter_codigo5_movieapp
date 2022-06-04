@@ -49,5 +49,12 @@ class APIService{
     return [];
   }
 
+  getReviews(int movieId) async{
+    String path = "$pathProduction/movie/$movieId/reviews?api_key=$apiKey&language=en-US&page=1";
+    Uri _uri = Uri.parse(path);
+    http.Response response = await http.get(_uri);
+    print(response.statusCode);
+  }
+
 
 }
