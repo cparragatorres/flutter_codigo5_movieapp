@@ -35,11 +35,16 @@ class APIService{
     return null;
   }
 
-  getCast(int movieId) async{
+  Future<List> getCast(int movieId) async{
     String path = "$pathProduction/movie/$movieId/credits?api_key=$apiKey&language=en-US";
     Uri _uri = Uri.parse(path);
     http.Response response = await http.get(_uri);
-    print(response.statusCode);
+    if(response.statusCode == 200){
+      Map<String, dynamic> myMap =  json.decode(response.body);
+      List cast = myMap["cast"];
+      print(cast);
+    }
+    return [];
   }
 
 
