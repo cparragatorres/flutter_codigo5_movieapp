@@ -48,6 +48,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          backgroundColor: kBrandPrimaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
@@ -59,19 +60,51 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                 height: 220,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage("https://image.tmdb.org/t/p/w500/u2tnZ0L2dwrzFKevVANYT5Pb1nE.jpg",),
+                    image: NetworkImage(
+                      "https://image.tmdb.org/t/p/w500/u2tnZ0L2dwrzFKevVANYT5Pb1nE.jpg",
+                    ),
                   ),
                 ),
               ),
-              Text("Hola"),
-              Text("Hola"),
-              Text("Hola"),
-              Text("Hola"),
-              Text("Hola"),
-              Text("Hola"),
+              Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "Harold Torres asdsad asdasds asdsad sdsadsdasdasd ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    Text(
+                      "Mexico City, Distrito Federal, Mexico",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 13.0,
+                      ),
+                    ),
+                    Text(
+                      "1991-03-15",
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 13.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         );
@@ -306,7 +339,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                 children: castList
                                     .map(
                                       (e) => GestureDetector(
-                                        onTap: (){
+                                        onTap: () {
                                           showDetailCast();
                                         },
                                         child: ItemCastWidget(castModel: e),
