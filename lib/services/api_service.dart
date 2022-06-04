@@ -76,5 +76,13 @@ class APIService{
     return null;
   }
 
+  getImages(int movieId) async {
+    String path = "$pathProduction/movie/752623/images?api_key=$apiKey";
+    Uri _uri = Uri.parse(path);
+    http.Response response = await http.get(_uri);
+    print(response.statusCode);
+    print(response.body);
+  }
+
 
 }
