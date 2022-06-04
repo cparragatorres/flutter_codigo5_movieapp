@@ -47,7 +47,34 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog();
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          contentPadding: EdgeInsets.zero,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 220,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage("https://image.tmdb.org/t/p/w500/u2tnZ0L2dwrzFKevVANYT5Pb1nE.jpg",),
+                  ),
+                ),
+              ),
+              Text("Hola"),
+              Text("Hola"),
+              Text("Hola"),
+              Text("Hola"),
+              Text("Hola"),
+              Text("Hola"),
+            ],
+          ),
+        );
       },
     );
   }
