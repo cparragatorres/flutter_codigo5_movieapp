@@ -19,8 +19,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List movies = [];
   List<MovieModel> moviesList = [];
+  List<MovieModel> moviesListAux = [];
   List<GenreModel> genresList = [];
   final APIService _apiService = APIService();
+
+  int indexFilter = 0;
 
   @override
   initState() {
@@ -36,12 +39,30 @@ class _HomePageState extends State<HomePage> {
     //   });
     // });
     moviesList = await _apiService.getMovies();
+    moviesListAux = moviesList;
     genresList = await _apiService.getGenres();
+    genresList.insert(0, GenreModel(id: 0, name: "All", selected: true));
+    indexFilter = genresList[0].id;
     setState(() {});
   }
 
+  filterMovie(){
+    moviesList = moviesListAux;
+    if(indexFilter != 0){
+      moviesList = moviesList.where((element) => element.genreIds.contains(indexFilter)).toList();
+    }
+    setState(() {
+
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
+
+
+
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
       body: SafeArea(
@@ -113,7 +134,12 @@ class _HomePageState extends State<HomePage> {
                         .map(
                           (e) => ItemFilterWidget(
                             textFilter: e.name,
-                            isSelected: false,
+                            isSelected: indexFilter == e.id,
+                            onTap: (){
+                              indexFilter = e.id;
+                              print(indexFilter);
+                              filterMovie();
+                            },
                           ),
                         )
                         .toList(),
