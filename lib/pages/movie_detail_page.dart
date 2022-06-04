@@ -53,7 +53,16 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             borderRadius: BorderRadius.circular(20.0),
           ),
           contentPadding: EdgeInsets.zero,
-          content: Column(
+          content: true ? SizedBox(height: 300, child: const Center(
+            child: SizedBox(
+              height: 26,
+              width: 26,
+              child: CircularProgressIndicator(
+                color: kBrandSecondaryColor,
+                strokeWidth: 2.0,
+              ),
+            ),
+          ),) : Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
