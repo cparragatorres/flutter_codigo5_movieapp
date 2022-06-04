@@ -32,7 +32,7 @@ class ItemCastWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "Karla",
+            "Karla asdsad asdsadsadsa sadsadsad asdsadasd ",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,

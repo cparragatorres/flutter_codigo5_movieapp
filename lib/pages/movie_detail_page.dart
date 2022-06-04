@@ -6,6 +6,7 @@ import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_cast_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_review_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/title_description_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MovieDetailPage extends StatefulWidget {
   int movieId;
@@ -129,7 +130,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                         width: 4.0,
                                       ),
                                       Text(
-                                        movieDetailModel!.releaseDate.toString().substring(0,10),
+                                        movieDetailModel!.releaseDate
+                                            .toString()
+                                            .substring(0, 10),
                                         style: TextStyle(
                                             color: Colors.white54,
                                             fontSize: 13.0),
@@ -199,7 +202,10 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                               width: double.infinity,
                               height: 50.0,
                               child: ElevatedButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  launchUrl(
+                                      Uri.parse(movieDetailModel!.homepage));
+                                },
                                 icon: const Icon(
                                   Icons.link,
                                   color: kBrandPrimaryColor,
@@ -227,36 +233,19 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                             ),
                             Wrap(
                               spacing: 8,
-                              children: [
-                                Chip(
-                                    label: Text(
-                                      "Action",
-                                    ),
-                                    shape: RoundedRectangleBorder(
+                              children: movieDetailModel!.genres
+                                  .map(
+                                    (e) => Chip(
+                                      label: Text(
+                                        e.name,
+                                      ),
+                                      shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(12.0))),
-                                Chip(
-                                    label: Text(
-                                      "Action asdsadads ",
+                                            BorderRadius.circular(12.0),
+                                      ),
                                     ),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(12.0))),
-                                Chip(
-                                    label: Text(
-                                      "Action",
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(12.0))),
-                                Chip(
-                                    label: Text(
-                                      "Action sdsd",
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(12.0))),
-                              ],
+                                  )
+                                  .toList(),
                             ),
                             const SizedBox(
                               height: 16,
