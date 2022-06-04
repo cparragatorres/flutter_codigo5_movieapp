@@ -12,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MovieDetailPage extends StatefulWidget {
   int movieId;
+
   MovieDetailPage({
     required this.movieId,
   });
@@ -40,6 +41,15 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     reviews = await _apiService.getReviews(widget.movieId);
     isLoading = false;
     setState(() {});
+  }
+
+  showDetailCast() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog();
+      },
+    );
   }
 
   @override
@@ -266,7 +276,16 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                               scrollDirection: Axis.horizontal,
                               physics: const BouncingScrollPhysics(),
                               child: Row(
-                                children: castList.map((e) => ItemCastWidget(castModel: e),).toList(),
+                                children: castList
+                                    .map(
+                                      (e) => GestureDetector(
+                                        onTap: (){
+                                          showDetailCast();
+                                        },
+                                        child: ItemCastWidget(castModel: e),
+                                      ),
+                                    )
+                                    .toList(),
                               ),
                             ),
                             const SizedBox(
@@ -278,9 +297,11 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                             const SizedBox(
                               height: 10.0,
                             ),
-
-                            ...reviews.map((e) =>  ItemReviewWidget(reviewModel: e),).toList(),
-
+                            ...reviews
+                                .map(
+                                  (e) => ItemReviewWidget(reviewModel: e),
+                                )
+                                .toList(),
                             const SizedBox(
                               height: 30,
                             ),
