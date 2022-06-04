@@ -85,6 +85,7 @@ class APIService{
       Map<String, dynamic> myMap = json.decode(response.body);
       List images = myMap["backdrops"];
       List<ImageModel> imageModelList = images.map((e) => ImageModel.fromJson(e)).toList();
+      print(imageModelList);
       return imageModelList;
     }
     return [];

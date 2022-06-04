@@ -299,6 +299,36 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                               height: 20,
                             ),
                             TitleDescriptionWidget(
+                              title: "Images",
+                            ),
+                            GridView.count(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              crossAxisCount: 2,
+                              childAspectRatio: 1.5,
+                              children: [
+                                Image.network(
+                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
+                                  fit: BoxFit.cover,
+                                ),
+                                Image.network(
+                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
+                                  fit: BoxFit.cover,
+                                ),
+                                Image.network(
+                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
+                                  fit: BoxFit.cover,
+                                ),
+                                Image.network(
+                                  "https://image.tmdb.org/t/p/w500/A3bsT0m1um6tvcmlIGxBwx9eAxn.jpg",
+                                  fit: BoxFit.cover,
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            TitleDescriptionWidget(
                               title: "Reviews",
                             ),
                             const SizedBox(
