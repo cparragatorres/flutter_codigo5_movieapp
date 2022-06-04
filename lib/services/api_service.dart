@@ -23,8 +23,16 @@ class APIService{
   }
 
 
-  Future<MovieDetailModel> getMovie(int movieId){
-
+  Future<MovieDetailModel?> getMovie(int movieId) async{
+    String path = "$pathProduction/movie/$movieId?api_key=$apiKey";
+    Uri _uri = Uri.parse(path);
+    http.Response response = await http.get(_uri);
+    if(response.statusCode == 200){
+      Map<String, dynamic> myMap = json.decode(response.body);
+      MovieDetailModel movie = MovieDetailModel.fromJson(myMap);
+      return movie;
+    }
+    return null;
   }
 
 

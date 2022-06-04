@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_cast_widget.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_review_widget.dart';
@@ -14,11 +15,24 @@ class MovieDetailPage extends StatefulWidget {
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
+
+  APIService _apiService = APIService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+  getData(){
+    _apiService.getMovie(widget.movieId);
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
-
-    print(widget.movieId);
-
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
       body: CustomScrollView(
