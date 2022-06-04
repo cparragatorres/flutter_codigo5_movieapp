@@ -107,7 +107,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: NetworkImage(
-                                    "http://image.tmdb.org/t/p/w500/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",
+                                    "http://image.tmdb.org/t/p/w500${movieDetailModel!.posterPath}",
                                   ),
                                 ),
                               ),
@@ -129,7 +129,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                         width: 4.0,
                                       ),
                                       Text(
-                                        "2022-01-01",
+                                        movieDetailModel!.releaseDate.toString().substring(0,10),
                                         style: TextStyle(
                                             color: Colors.white54,
                                             fontSize: 13.0),
@@ -140,7 +140,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                     height: 6.0,
                                   ),
                                   Text(
-                                    "Fantastic Beasts: The Secrets of Dumbledore",
+                                    movieDetailModel!.originalTitle,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18.0,
@@ -161,7 +161,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                         width: 4.0,
                                       ),
                                       Text(
-                                        "120 min",
+                                        "${movieDetailModel!.runtime} min",
                                         style: TextStyle(
                                             color: Colors.white54,
                                             fontSize: 13.0),
@@ -186,7 +186,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                               title: "Overview",
                             ),
                             Text(
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                              movieDetailModel!.overview,
                               style: TextStyle(
                                 color: Colors.white54,
                                 fontSize: 14.0,
