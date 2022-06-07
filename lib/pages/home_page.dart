@@ -52,7 +52,6 @@ class _HomePageState extends State<HomePage> {
       moviesList = moviesList.where((element) => element.genreIds.contains(indexFilter)).toList();
     }
     setState(() {
-
     });
   }
 

@@ -5,6 +5,7 @@ import 'package:flutter_codigo5_movieapp/models/image_model.dart';
 import 'package:flutter_codigo5_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo5_movieapp/models/review_model.dart';
 import 'package:flutter_codigo5_movieapp/pages/cast_detail_page.dart';
+import 'package:flutter_codigo5_movieapp/pages/new_page.dart';
 import 'package:flutter_codigo5_movieapp/services/api_service.dart';
 import 'package:flutter_codigo5_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo5_movieapp/ui/widgets/item_cast_widget.dart';
@@ -120,7 +121,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                 SliverList(
                   delegate: SliverChildListDelegate(
                     [
-
                       // SizedBox(
                       //   width: 200,
                       //   height: 200,
@@ -215,6 +215,16 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                           ],
                         ),
                       ),
+
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> NewPage()));
+                        },
+                        child: Text(
+                          "New page",
+                        ),
+                      ),
+
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 14,

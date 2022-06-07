@@ -10,7 +10,18 @@ void main() {
   //     systemNavigationBarColor: Colors.indigo,
   //   ),
   // );
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    // DeviceOrientation.landscapeRight,
+    DeviceOrientation.portraitUp
+  ]).then((value){
+    runApp(MyApp());
+  });
+
+  //landscape - horizontal
+  //portrait - vertical
+
+
 }
 
 class MyApp extends StatelessWidget {
